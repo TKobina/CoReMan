@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+ /* background: transparent url('bg_button_a.gif') no-repeat scroll top right; */
+ 
+ div.product-description {
+  trix-toolbar .trix-button-group.trix-button-group--file-tools {
+    display:none;
+   }
+ }
+
+ div.field_with_errors {
+  display: inline;
+ }
+
+ img.image-profile-pic {
+  height: 150px;
+ }
+
+ /*
+ trix-toolbar .trix-button-group button {
+  background-color: green;
+ }
+ */
+
+.nav_button {
+  /*color: #444;*/
+  display: inline;
+  background: transparent url('bg_button_a.gif') no-repeat scroll top right;
+  float: left;
+  font: bold 12px arial, sans-serif;
+  height: 25px;
+  width: 75px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+
+.link-button {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  background: green;
+  color: currentColor;
+  /* margin-top: 0px; */
+
+
+}
+
+.nav_border {
+  border: 3px solid purple;
+  margin-top: 0px;
+}
+
+
+nav.navigation_menu {
+  background-color: magenta;
+  height: 30px;
+  padding-left: 10px;
+  border-top: 3px solid purple;
+  border-bottom: 3px solid purple;
+}
+
+div.border {
+  height: 40px;
+  background-color: purple;
+}
+
+div.login_form {
+  max-width: 300px;
+  border: 3px solid black
+}
+
+input#email_address {
+  width: 300px
+}
+
+input#password {
+  width: 300px;
+}

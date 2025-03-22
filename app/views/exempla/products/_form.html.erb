@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+document.addEventListener("trix-file-accept", (event) => {
+  event.preventDefault();
+});
+
+</script>
+
+<%= form_with model: exempla_product do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <div class="product-description">
+      <%= f.rich_text_area :description %>
+    </div>
+  <div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

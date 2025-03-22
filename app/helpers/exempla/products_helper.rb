@@ -1,0 +1,2 @@
+module Exempla::ProductsHelper
+end

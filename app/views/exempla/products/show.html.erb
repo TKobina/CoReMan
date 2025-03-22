@@ -1,0 +1,10 @@
+<% cache @product do %>
+  <h1><%= @product.name %></h1>
+  <%= @product.description %>
+<% end %>
+
+<%= link_to "Back", exempla_products_path %> </br>
+<% if authenticated? %>
+  <%= link_to "Edit", edit_exempla_product_path(@product) %> </br>
+  <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% end %>
