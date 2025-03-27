@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  has_many :entities, dependent: :destroy
+
   def set_defaults
     self.confirmed_email = false
   end

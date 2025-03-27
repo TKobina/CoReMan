@@ -49,9 +49,46 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_075644) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "entities", force: :cascade do |t|
+  create_table "coreman_entities", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "display_name"
+    t.integer "coreman_entity_type_id", null: false
+    t.integer "user_id", null: false
+    t.index ["coreman_entity_type_id"], name: "index_coreman_entities_on_coreman_entity_type_id"
+    t.index ["user_id"], name: "index_coreman_entities_on_user_id"
+  end
+
+  create_table "coreman_entity_name_types", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coreman_entity_names", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "value"
+    t.integer "coreman_entity_name_type_id", null: false
+    t.integer "coreman_entity_id", null: false
+    t.index ["coreman_entity_id"], name: "index_coreman_entity_names_on_coreman_entity_id"
+    t.index ["coreman_entity_name_type_id"], name: "index_coreman_entity_names_on_coreman_entity_name_type_id"
+  end
+
+  create_table "coreman_entity_names_types", force: :cascade do |t|
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coreman_entity_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "value"
     t.text "description"
+  end
+
+  create_table "entities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "entity_type_id", null: false
@@ -61,13 +98,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_075644) do
   end
 
   create_table "entity_name_types", force: :cascade do |t|
-    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "entity_names", force: :cascade do |t|
-    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "entity_name_type_id", null: false
@@ -77,8 +112,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_075644) do
   end
 
   create_table "entity_types", force: :cascade do |t|
-    t.string "value"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,6 +142,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_075644) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "coreman_entities", "coreman_entity_types"
+  add_foreign_key "coreman_entities", "users"
+  add_foreign_key "coreman_entity_names", "coreman_entities"
+  add_foreign_key "coreman_entity_names", "coreman_entity_name_types"
   add_foreign_key "entities", "entity_types"
   add_foreign_key "entities", "users"
   add_foreign_key "entity_names", "entities"

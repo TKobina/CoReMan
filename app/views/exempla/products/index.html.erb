@@ -1,7 +1,5 @@
 <h1>Products#index</h1>
 
-<%= link_to "New Product", new_exempla_product_path if authenticated? %>
-
 <div id="products">
   <% @products.each do |p| %>
     <div>
@@ -9,3 +7,5 @@
     </div>
   <% end %>
 </div>
+
+</p><%= link_to "Add Product", new_exempla_product_path if authenticated? %>

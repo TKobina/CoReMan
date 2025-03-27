@@ -10,10 +10,13 @@
   * preferred
 * https://dalezak.medium.com/using-subfolders-in-rails-to-better-organize-models-for-single-table-inheritance-a7b491761b0a
 
-# ROUTING
+## ROUTING
 * Parameters
   * https://medium.com/jungletronics/rails-8-understanding-params-expect-19c4585d1a1c
 
+## SECURITY
+* https://guides.rubyonrails.org/v3.1/security.html
+* https://www.rorbits.com/ruby-on-rails-security/
 
 ## FRONT END
 ### HTML/CSS

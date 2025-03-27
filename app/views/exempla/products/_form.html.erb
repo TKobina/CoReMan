@@ -10,7 +10,17 @@ document.addEventListener("trix-file-accept", (event) => {
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
+
+    </p>
+    <%= f.label :featured_image, style: "display: block" %>
+      <% if @product.featured_image.attached? %>
+        <%= image_tag @product.featured_image, class: "image-profile-pic" %></br>
+      <% end %>
+      <%= f.file_field :featured_image, accept: "image/*" %></br>
+
+    </p>
     <div class="product-description">
+      <%= f.label "Product Description" %>
       <%= f.rich_text_area :description %>
     </div>
   <div>
