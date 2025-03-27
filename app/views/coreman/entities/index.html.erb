@@ -1,0 +1,7 @@
+<h1> Entities </h1>
+
+<div>
+  <% @entities.each do |e| %>
+    <%= e.display_name %> | <%= EntityType.find_by_id(e.entity_type_id).value %> | <%= e.description %>
+  <% end %>
+</div>

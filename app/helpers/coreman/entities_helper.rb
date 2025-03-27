@@ -1,0 +1,2 @@
+module Coreman::EntitiesHelper
+end

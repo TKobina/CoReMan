@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  
-  #get "pages/exempla", to: "pages#exempla"
+  # get "pages/exempla", to: "pages#exempla"
   namespace :pages do
-    get "/exempla", to: "exempla" #equivalent to <get "pages/exempla", to: "pages#exempla"> outside of namespace    
+    get "/exempla", to: "exempla" # equivalent to <get "pages/exempla", to: "pages#exempla"> outside of namespace
   end
-  
+
   namespace :exempla do
     resources :products
   end
-  
+
+  namespace :coreman do
+    resources :entities
+  end
+
   namespace :authentication do
     resource :session
     resources :passwords, param: :token
