@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  validates :email_address, uniqueness: true
+
   has_many :entities, dependent: :destroy
 
   def set_defaults

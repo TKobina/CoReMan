@@ -3,6 +3,8 @@
 ## ACTIVE DIRECTORY
 * Join Tables
   * https://stackoverflow.com/questions/7606124/using-join-tables-in-ruby-on-rails
+* Uninqueness
+  * https://medium.com/@jennyjean8675309/keeping-it-clean-data-validation-with-ruby-on-rails-a0c6190f1b8e
 
 ## FILE ORGANIZATION
 ### Models
