@@ -60,7 +60,6 @@ rails_username ALL=(minecraft_username) NOPASSWD: /bin/bash -c <server script>
     * https://github.com/imthenachoman/How-To-Secure-A-Linux-Server
   * Shifting to use something other than pid's for url's, or using uui7 for record url's (resolved by using authentication, to a degree?)
   * Implement shared ownership, viewing of records?
-  * FIGURE OUT HOW TO CHECK ALL RECORDS FOR USER? IS OWNERSHIP INHERITED??
 
 * ORGANIZATION
   * Move js script to prevent file upload via ActionText/Trix from /views/entities/edit.html.erb to somewhere more appropriate
@@ -68,11 +67,12 @@ rails_username ALL=(minecraft_username) NOPASSWD: /bin/bash -c <server script>
 
 * TESTING
   * Check failed test
+    * Yes, injection warning, but how the hell am I supposed to use variables from credentials w/out triggering the injection failures??
 
 * MISCELLANEOUS
   * Displaying static/markdown pages
     * https://rollen.io/blog/markdown-rails/
-  * Mock data: store e-mails in /db/seeds/mock_data.yml
+  * Mock data: store user e-mails in /db/seeds/mock_data.yml
   * Implement guest account for demoing
 
 ## BUGS

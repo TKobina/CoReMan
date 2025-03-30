@@ -1,7 +1,11 @@
 ---
-:title: mock_user_ids
-:user_ids:
-- 7
-- 8
-- 9
-- 10
+:title: mock_user_emails
+:user_emails:
+- kobina.w.thatcher+leon1743298872@gmail.com
+- kobina.w.thatcher+kena1743298873@gmail.com
+- kobina.w.thatcher+val1743298873@gmail.com
+- kobina.w.thatcher+tristan1743298873@gmail.com
+- kobina.w.thatcher+wyatt1743298842@gmail.com
+- kobina.w.thatcher+dominique1743298843@gmail.com
+- kobina.w.thatcher+cortez1743298843@gmail.com
+- kobina.w.thatcher+maximina1743298843@gmail.com

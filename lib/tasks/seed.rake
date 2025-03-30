@@ -1,9 +1,9 @@
 require "faker_seeder/seeder_class"
-require "faker_seeder/faker_helper_class"
+require "faker_seeder/faker_interface_class"
 
-namespace :db do
+namespace :mock do
   desc "Seeds the database with initial Users, etc."
-  task seed_init: :environment do
+  task init: :environment do
     base_seeding = Rails.application.credentials.mock_seeding
     memail =base_seeding[:email_base] + base_seeding[:email_suffix]
 
@@ -22,16 +22,19 @@ namespace :db do
 
 
   desc "Seeds mock data into database"
-  task seed_mock: :environment do
+  task seed: :environment do
     seeder = SeederClass.new()
     seeder.seed_users(4)
-    seeder.seed_entities(6)
-    seeder.seed_events(6)
+    seeder.seed_entity_persons(6)
+    seeder.seed_entity_events(6)
   end
 
   desc "Unseed mock data from database"
-  task unseed_mock: :environment do
+  task unseed: :environment do
     seeder = SeederClass.new()
     seeder.unseed()
+  end
+
+  task test: :environment do
   end
 end

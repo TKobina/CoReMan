@@ -9,7 +9,6 @@ module BashInterface
   def self.initialize_logger(task_log_file)
     @logger = Logger.new(task_log_file)
     @logger.info("Minecraft log initialized!")
-
   end
 
   def self.log(source: "BashInterface: ", text: "")
