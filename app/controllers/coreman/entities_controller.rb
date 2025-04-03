@@ -1,6 +1,7 @@
 class Coreman::EntitiesController < ApplicationController
   def index
-    @entities = Entity.where(user_id: authenticated?.user_id)
+    @entities ||= Entity.where(user_id: Current.user[:id])
+    get_entity_types
   end
 
   def show
@@ -22,4 +23,9 @@ class Coreman::EntitiesController < ApplicationController
   end
 
   private
+
+  def get_entity_types
+    @entity_types ||= {}
+    EntityType.all.each { |t| @entity_types[t[:id]] = t[:value] } if @entity_types.empty?
+  end
 end

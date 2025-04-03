@@ -72,8 +72,9 @@ rails_username ALL=(minecraft_username) NOPASSWD: /bin/bash -c <server script>
 * MISCELLANEOUS
   * Displaying static/markdown pages
     * https://rollen.io/blog/markdown-rails/
-  * Mock data: store user e-mails in /db/seeds/mock_data.yml
+  * ~~Mock data: store user e-mails in /db/seeds/mock_data.yml~~
   * Implement guest account for demoing
+  * IMPLEMENT STORIES/JOURNAL, != EVENTS?? OR STICK THEM IN EVENTS??
 
 ## BUGS
 * When attempting to manually access specific record that doesn't belong to a user....

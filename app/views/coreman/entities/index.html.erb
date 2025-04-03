@@ -1,10 +1,9 @@
 <h1> Entities </h1>
-
 <div>
   <% @entities.each do |e| %>
   <div>
-    <b> <%= EntityType.find_by_id(e.entity_type_id).value %> </b> | 
-    <%= e.display_name %> | 
+    <b> <%= @entity_types[e.entity_type_id] %> </b> | 
+    <%= link_to e.display_name, e %> | 
     <i> <%= e.description %> </i>
   </div>
   <% end %>
