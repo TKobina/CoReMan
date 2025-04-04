@@ -5,9 +5,12 @@ class SeederClass
   end
 
   def unseed
-    mock_users = read_mock_users.compact
-    mock_users.each { |x| User.where(email_address: x).first.destroy }
-    write_mock_user_emails([])
+    mock_users = get_mock_users.compact
+    mock_users.each do |email|
+      user = User.where(email_address: email)
+      user.first.destroy unless user.empty?
+    end
+    write_mock_users([])
   end
 
   def seed_users(n)
@@ -38,9 +41,7 @@ class SeederClass
     users = get_mock_users
     entity_type = EntityType.where(value: "Person").first.id
     users.each do |email|
-      binding.pry
       n.times do
-        
         e = Entity.new(
           user_id: User.where(email_address: email).first.id,
           display_name:  @faker_helper.gen_entity_person_name,
