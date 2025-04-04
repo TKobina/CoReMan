@@ -3,7 +3,7 @@
   <% @entities.each do |e| %>
   <div>
     <b> <%= @entity_types[e.entity_type_id] %> </b> | 
-    <%= link_to e.display_name, e %> | 
+      <%= link_to e.display_name, coreman_entity_path(e.id) %> |
     <i> <%= e.description %> </i>
   </div>
   <% end %>

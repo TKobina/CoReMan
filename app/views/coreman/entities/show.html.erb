@@ -1,1 +1,9 @@
+<%= link_to "Back", coreman_entities_path %>
+
 <h1> <%= @entity.display_name %> </h1>
+<div>
+  <b> Type: </b> <%= @entity_types[@entity.entity_type_id] %>
+</div>
+<div>
+  <b> Description: </b> <%= @entity.description %>
+</div>

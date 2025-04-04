@@ -38,7 +38,9 @@ class SeederClass
     users = get_mock_users
     entity_type = EntityType.where(value: "Person").first.id
     users.each do |email|
+      binding.pry
       n.times do
+        
         e = Entity.new(
           user_id: User.where(email_address: email).first.id,
           display_name:  @faker_helper.gen_entity_person_name,
