@@ -2,6 +2,9 @@
 ## OVERVIEW
 #### Serves as a community relations manager, something like a customer relation manager but oriented towards other social or academic communities, rather than corporate
 
+## LINKS
+* https://app.diagrams.net/#G1QzKQ5mCiWhrPiN5JBWQcO3fBw3KBVrj6
+
 ## GENERAL INFORMATION
 * Versions
   * Ruby 3.3.4

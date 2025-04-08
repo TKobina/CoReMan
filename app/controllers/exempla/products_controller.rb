@@ -3,18 +3,18 @@ class Exempla::ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
-    @products = Exempla::Product.all
+    @products = ExemplaProduct.all
   end
 
   def show
   end
 
   def new
-    @product = Exempla::Product.new
+    @product = ExemplaProduct.new
   end
 
   def create
-    @product = Exempla::Product.new(product_params)
+    @product = ExemplaProduct.new(product_params)
     if @product.save
       redirect_to @product
     else
@@ -45,6 +45,6 @@ class Exempla::ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Exempla::Product.find(params[:id])
+    @product = ExemplaProduct.find(params[:id])
   end
 end
