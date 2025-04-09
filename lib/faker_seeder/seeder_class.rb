@@ -13,6 +13,7 @@ class SeederClass
     write_mock_users([])
   end
 
+
   def seed_users(n)
     mock_settings = Rails.application.credentials.mock_seeding
 
@@ -37,35 +38,29 @@ class SeederClass
     append_mock_users(mock_user_emails)
   end
 
+  def seed_user(n, email, entity_type_value)
+    entity_type = EntityType.where(value: entity_type_value).first.id
+    n.times do
+      e = Entity.new(
+        user_id: User.where(email_address: email).first.id,
+        display_name:  @faker_helper.gen_entity_person_name,
+        description: @faker_helper.gen_entity_person_description,
+        entity_type_id: entity_type)
+      e.save
+    end
+  end
+
   def seed_entity_persons(n)
     users = get_mock_users
-    entity_type = EntityType.where(value: "Person").first.id
     users.each do |email|
-      n.times do
-        e = Entity.new(
-          user_id: User.where(email_address: email).first.id,
-          display_name:  @faker_helper.gen_entity_person_name,
-          description: @faker_helper.gen_entity_person_description,
-          entity_type_id: entity_type
-        )
-        e.save
-      end
+      seed_user(n, email, "Person")
     end
   end
 
   def seed_entity_events(n)
     users = get_mock_users
-    entity_type = EntityType.where(value: "Event").first.id
     users.each do |email|
-      n.times do
-        e = Entity.new(
-          user_id: User.where(email_address: email).first.id,
-          display_name:  @faker_helper.gen_entity_event_name,
-          description: @faker_helper.gen_entity_event_description,
-          entity_type_id: entity_type
-        )
-        e.save
-      end
+      seed_user(n, email, "Event")
     end
   end
 
