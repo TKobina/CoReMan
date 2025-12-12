@@ -71,4 +71,5 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
 
   config.web_console.permissions = Rails.application.credentials.developer_access
+  config.web_console.whiny_requests = false
 end
