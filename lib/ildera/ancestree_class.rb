@@ -11,6 +11,10 @@ class Ancestree
     @config = YAML.load_file(File.join(__dir__, 'config', 'settings.yml'))
     
     @config["houses"].each { |house| @houses[house] = Set.new}
+
+    unk = Person.new(name: "unknown", pid: "0")
+    @population[["unknown","0"]] = unk
+    @houses["unhoused"].add(["unknown","0"])
     
     chronology_file = __dir__ << @config["obsidian_dir"] << @config["chronology"]
     chronology = select_tables(ObsidianParser.new(chronology_file).get)[0][1]
@@ -57,10 +61,46 @@ class Ancestree
 
     @population[[cname, cid]] = child
     @houses[house].add([[cname, cid]])
+
+    add_relation([pname, pid],[cname, cid], "šnarë", date)
   end
+
+  def add_relation(pid1, pid2, relation_type, date)
+    p1 = @population[pid1]
+    case relation_type
+    when "šnarë"
+      relation_type = rtype_snare(p1.gender?)
+    when "consortion"
+      add_hlo(pid1, pid2)
+    end
+    p1.add_relation([pid2, relation_type, date])
+  end
+
+  def rtype_snare(gender)
+    case gender
+    when "w"
+      relation_type = "šnaïrë"
+    when "n"
+      relation_type = "šnayïrë"
+    when "m"
+      relation_type = "šnayyïrë"
+    end
+  end
+
+def add_hlo(pid1, pid2)
+  case p2.gender?
+  when "w"
+    relation_type = "hlöï"
+  when "n"
+    relation_type = "hlöyï"
+  when "m"
+    relation_type = "hlöyyï"
+  end
+end
 
   def parse_id(id)
     name, id, gender = id.split("-").map {|str| str.delete("[]")}
+    id = "0" if name == "unknown"
     {name: name, id: id, gender: gender}
   end
   
