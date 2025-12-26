@@ -5,4 +5,7 @@ class PagesController < ApplicationController
 
   def exempla
   end
+
+  def index
+  end
 end

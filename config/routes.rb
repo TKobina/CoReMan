@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get "pages/exempla", to: "pages#exempla"
   namespace :pages do
     get "/exempla", to: "exempla" # equivalent to <get "pages/exempla", to: "pages#exempla"> outside of namespace
+    get "/index", to: "index"
   end
 
   namespace :exempla do

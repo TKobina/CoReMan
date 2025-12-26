@@ -56,3 +56,6 @@
     * https://benborgers.com/trix-disable-files
 * Faker
   * https://github.com/faker-ruby/faker/tree/main?tab=readme-ov-file#generators
+* Obsidian-Parser
+  * https://github.com/MatMoore/obsidian-parser
+
